@@ -21,14 +21,14 @@ This is a simple quiz application built with Node.js and Express. It allows user
 
 To Run this project on your Local Machine
 ```bash
-  git clone https://github.com/your-username/node-quiz-app.git
+  git clone https://github.com/KarmvirJadeja/Quiz-Web-App.git
 
 ```
 
 Install dependencies:
 
 ``` 
-cd node-quiz-app
+cd Quiz-Web-App
 npm install
 
 ```
