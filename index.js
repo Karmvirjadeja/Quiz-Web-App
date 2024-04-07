@@ -28,7 +28,8 @@ app.get('/', (req, res) => {
 
 
 app.post('/submit', (req, res) => {
-let User_Ans=[];
+ 
+    let User_Ans=[];
 const submittedAnswers=req.body;
 
 Object.keys(submittedAnswers).forEach((questionIndex)=>{
@@ -43,9 +44,29 @@ for (let i = 0; i < User_Ans.length; i++) {
   }
 }
 
-res.render('result.ejs',{score,questions});
+res.render('result.ejs',{score});
 
 });
+
+
+
+
+// Here is the Answer route
+app.get('/answers', (req, res) => {
+  // Assume you have an array of questions and correct answers
+  const questions = [
+      { text: "What is Node.js?", answer: "A back-end JavaScript runtime" },
+      { text: "How does Node.js handle blocking I/O operations?", answer: "By using synchronous functions" },
+      // Add more questions here
+  ];
+
+  // Render the 'answers.ejs' template with the questions and correct answers
+  res.render('answers', { questions });
+});
+
+
+
+
 
 
 
