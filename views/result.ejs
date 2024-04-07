@@ -2,11 +2,66 @@
 <html>
 <head>
     <title>Result</title>
+    <style>
+        /* Style for the button */
+        button {
+            display: block;
+            margin: 20px auto; /* Center the button horizontally */
+            padding: 10px 20px; /* Add padding to make the button bigger */
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* Add some space between the button and the previous element */
+        }
+
+        button:hover {
+            background-color: darkgreen; /* Darker green on hover */
+        }
+    </style>
 </head>
 <body>
     <h1>Result</h1>
 
+    <!-- Display the user's score -->
     <h3>Your Result is <%= score %></h3>
-    <a href="/answers"><button>View Answers</button></a>
+    
+    <!-- Provide additional instructions or feedback -->
+    <% if (score === questions.length) { %>
+        <p>Congratulations! You answered all questions correctly!</p>
+    <% } else if (score === 0) { %>
+        <p>Oops! You didn't get any questions right. Don't worry, you can try again!</p>
+    <% } else { %>
+        <p>Well done! You answered <%= score %> out of <%= questions.length %> questions correctly. You can review your answers below.</p>
+    <% } %>
+    
+    <h2>Answers:</h2>
+    <ul>
+        <!-- Loop through each question to display its details -->
+        <% questions.forEach((question, index) => { %>
+            <li>
+                <!-- Display the question number and text -->
+                <strong>Question <%= index + 1 %>:</strong> <%= question.text %><br>
+                
+                <!-- Display the user's answer (if available) and the correct answer -->
+                <strong>Your Answer:</strong> <%= question.options[selectedAnswers[index]] ? question.options[selectedAnswers[index]].text : 'N/A' %><br>
+                <strong>Correct Answer:</strong> <%= question.options[question.answer].text %>
+            </li>
+            <br>
+        <% }) %>
+    </ul>
+    
+    <!-- Button to try the quiz again -->
+   <!-- Button to try the quiz again -->
+<button id="tryAgainButton">Try Again</button>
+
+<script>
+    // JavaScript code to handle button click event and redirect to the quiz page
+    document.getElementById("tryAgainButton").addEventListener("click", function() {
+        window.location.href = "/"; // Redirect to the quiz page
+    });
+</script>
 </body>
 </html>

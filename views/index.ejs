@@ -2,20 +2,61 @@
 <html>
 <head>
     <title>Node.js Quiz</title>
+    <!-- Define styles for correct and incorrect answers -->
+    <style>
+        
+        /* Style for the submit button */
+        #submitBtn {
+            display: block;
+            margin: 20px auto; /* Center the button horizontally */
+            padding: 10px 20px; /* Add padding to make the button bigger */
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #submitBtn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
 </head>
 <body>
     <h1>Node.js Quiz</h1>
+
+
+    <p><strong>Instructions:</strong></p>
+    <ul>
+        <li>Select the correct answer for each question.</li>
+        <li>Once you have completed all questions, click the "Submit" button to see your score.</li>
+        <li>Your score will be displayed along with the correct answers.</li>
+    </ul>
     <form id="quizForm" method="POST" action="/submit">
+        <!-- Loop through each question -->
         <% questions.forEach((question, index) => { %>
-            <h3>Question <%= index + 1 %>:<p><%= question.text %></p></h3>
+            <h3>Question <%= index + 1 %>:</h3>
+            <p><%= question.text %></p>
             
+            <!-- Loop through each option for the current question -->
             <% question.options.forEach((option) => { %>
-                <input type="radio" id="option<%= option.index %>" name="answer<%= index %>" value="<%= option.index %>">
+                <!-- Determine the class based on whether the option is correct, incorrect, or not selected -->
+                <% if (option.correct) { %>
+                    <input type="radio" id="option<%= option.index %>" name="answer<%= index %>" value="<%= option.index %>" class="correct">
+                <% } else if (option.selected) { %>
+                    <input type="radio" id="option<%= option.index %>" name="answer<%= index %>" value="<%= option.index %>" class="incorrect">
+                <% } else { %>
+                    <input type="radio" id="option<%= option.index %>" name="answer<%= index %>" value="<%= option.index %>">
+                <% } %>
+                <!-- Display the option text -->
                 <label for="option<%= option.index %>"><%= option.text %></label><br>
             <% }) %>
             <br>
         <% }) %>
-        <input type="submit" value="Submit">
+        <!-- Submit button -->
+        <input type="submit" value="Submit" id="submitBtn">
     </form>
+    <!-- Additional instructions and information -->
+   
 </body>
 </html>
