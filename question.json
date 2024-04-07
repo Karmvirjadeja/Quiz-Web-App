@@ -3,10 +3,10 @@
     "id": 1,
     "text": "What is Node.js?",
     "options": [
-      "A front-end JavaScript framework",
-      "A back-end JavaScript runtime",
-      "A database management system",
-      "A programming language"
+      { "index": 0, "text": "A front-end JavaScript framework" },
+      { "index": 1, "text": "A back-end JavaScript runtime" },
+      { "index": 2, "text": "A database management system" },
+      { "index": 3, "text": "A programming language" }
     ],
     "answer": 1
   },
@@ -14,10 +14,10 @@
     "id": 2,
     "text": "How does Node.js handle blocking I/O operations?",
     "options": [
-      "By using synchronous functions",
-      "By using asynchronous functions",
-      "By using multi-threading",
-      "By using callbacks"
+      { "index": 0, "text": "By using synchronous functions" },
+      { "index": 1, "text": "By using asynchronous functions" },
+      { "index": 2, "text": "By using multi-threading" },
+      { "index": 3, "text": "By using callbacks" }
     ],
     "answer": 0
   },
@@ -25,10 +25,10 @@
     "id": 3,
     "text": "What is the Node.js event loop?",
     "options": [
-      "A loop that processes HTTP requests",
-      "A loop that handles asynchronous operations",
-      "A loop that manages file I/O operations",
-      "A loop that manages memory allocation"
+      { "index": 0, "text": "A loop that processes HTTP requests" },
+      { "index": 1, "text": "A loop that handles asynchronous operations" },
+      { "index": 2, "text": "A loop that manages file I/O operations" },
+      { "index": 3, "text": "A loop that manages memory allocation" }
     ],
     "answer": 1
   },
@@ -36,10 +36,10 @@
     "id": 4,
     "text": "What is a callback function in Node.js?",
     "options": [
-      "A function that is called after a delay",
-      "A function that is called at the end of a program",
-      "A function that is passed as an argument to another function",
-      "A function that is used to handle errors"
+      { "index": 0, "text": "A function that is called after a delay" },
+      { "index": 1, "text": "A function that is called at the end of a program" },
+      { "index": 2, "text": "A function that is passed as an argument to another function" },
+      { "index": 3, "text": "A function that is used to handle errors" }
     ],
     "answer": 2
   },
@@ -47,10 +47,10 @@
     "id": 5,
     "text": "How can you include a module in a Node.js application?",
     "options": [
-      "By using the import keyword",
-      "By using the require() function",
-      "By using the include() function",
-      "By using the module() function"
+      { "index": 0, "text": "By using the import keyword" },
+      { "index": 1, "text": "By using the require() function" },
+      { "index": 2, "text": "By using the include() function" },
+      { "index": 3, "text": "By using the module() function" }
     ],
     "answer": 1
   },
@@ -58,10 +58,10 @@
     "id": 6,
     "text": "What is the purpose of the Node.js fs module?",
     "options": [
-      "To handle file system operations",
-      "To handle HTTP requests",
-      "To manage databases",
-      "To manage user sessions"
+      { "index": 0, "text": "To handle file system operations" },
+      { "index": 1, "text": "To handle HTTP requests" },
+      { "index": 2, "text": "To manage databases" },
+      { "index": 3, "text": "To manage user sessions" }
     ],
     "answer": 0
   },
@@ -69,10 +69,10 @@
     "id": 7,
     "text": "What is the purpose of the Node.js util module?",
     "options": [
-      "To handle utility functions",
-      "To handle file system operations",
-      "To manage user authentication",
-      "To manage database connections"
+      { "index": 0, "text": "To handle utility functions" },
+      { "index": 1, "text": "To handle file system operations" },
+      { "index": 2, "text": "To manage user authentication" },
+      { "index": 3, "text": "To manage database connections" }
     ],
     "answer": 0
   },
@@ -80,10 +80,10 @@
     "id": 8,
     "text": "How can you create a web server in Node.js?",
     "options": [
-      "By using the createServer() method from the http module",
-      "By using the listen() method from the express module",
-      "By using the server() method from the net module",
-      "By using the server() method from the http module"
+      { "index": 0, "text": "By using the createServer() method from the http module" },
+      { "index": 1, "text": "By using the listen() method from the express module" },
+      { "index": 2, "text": "By using the server() method from the net module" },
+      { "index": 3, "text": "By using the server() method from the http module" }
     ],
     "answer": 0
   },
@@ -91,10 +91,10 @@
     "id": 9,
     "text": "What is the purpose of the Node.js crypto module?",
     "options": [
-      "To handle HTTP requests",
-      "To perform cryptographic operations",
-      "To manage user authentication",
-      "To manage database connections"
+      { "index": 0, "text": "To handle HTTP requests" },
+      { "index": 1, "text": "To perform cryptographic operations" },
+      { "index": 2, "text": "To manage user authentication" },
+      { "index": 3, "text": "To manage database connections" }
     ],
     "answer": 1
   },
@@ -102,10 +102,10 @@
     "id": 10,
     "text": "Which of the following is a core module in Node.js?",
     "options": [
-      "fs (File System)",
-      "http (HTTP)",
-      "express (Express.js)",
-      "mysql (MySQL)"
+      { "index": 0, "text": "fs (File System)" },
+      { "index": 1, "text": "http (HTTP)" },
+      { "index": 2, "text": "express (Express.js)" },
+      { "index": 3, "text": "mysql (MySQL)" }
     ],
     "answer": 0
   }

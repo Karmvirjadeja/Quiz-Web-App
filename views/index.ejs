@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +9,9 @@
         <% questions.forEach((question, index) => { %>
             <h3>Question <%= index + 1 %>:<p><%= question.text %></p></h3>
             
-            <% question.options.forEach((option, optionIndex) => { %>
-                <input type="radio" id="option<%= optionIndex %>" name="answer<%= index %>" value="<%= option %>">
-                <label for="option<%= optionIndex %>"><%= option %></label><br>
+            <% question.options.forEach((option) => { %>
+                <input type="radio" id="option<%= option.index %>" name="answer<%= index %>" value="<%= option.index %>">
+                <label for="option<%= option.index %>"><%= option.text %></label><br>
             <% }) %>
             <br>
         <% }) %>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Result</h1>
+
+    <h3>Your Result is <%= score %> out of <%= questions.length %></h3>
+
+    <ul>
+        <% questions.forEach((question, index) => { %>
+            <li>
+                <p>Question <%= index + 1 %>: <%= question.text %></p>
+                <p>Your Answer: <%= userAnswers[index] %></p>
+                <p>Correct Answer: <%= question.options[question.answer] %></p>
+                <% if (userAnswers[index] === question.answer) { %>
+                    <p>Feedback: Correct</p>
+                <% } else { %>
+                    <p>Feedback: Incorrect</p>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
