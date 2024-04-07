@@ -1,71 +1,38 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
-import dotenv from "dotenv";
+import fs from "fs";
+import env from "dotenv";
+env.config();
 const app = express();
-const port = 3000;
 
-const db= new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database:"permalist",
-  password:"K@rmvir20",
-  port:5432,
-});
- db.connect();
-
- app.use(bodyParser.urlencoded({extended:true}));
- app.use(express.static("public"));
-
-
-let items = [
-  { id: 1, title: "Buy milk" },
-  { id: 2, title: "Finish homework" },
+// Declare questions as a let variable to allow reassignment
+let questions = [
+  
 ];
+try {
+  let data = fs.readFileSync('question.json', 'utf-8');
+  questions = JSON.parse(data);
+  console.log(questions);
+} catch (err) {
+  console.error('Error reading questions file:', err);
+}
 
-app.get("/", async(req, res) => {
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
-const result= await db.query("SELECT * FROM items ORDER BY id ASC");
-items=result.rows;
-  res.render("index.ejs", {
-    listTitle: "Today",
-    listItems: items,
+app.get('/', (req, res) => {
+  res.render('index', { questions
+  
   });
 });
 
-app.post("/add", async(req, res) => {
-  const item = req.body.newItem;
-
-  try {
-  await db.query("INSERT INTO items (title) VALUES ($1)", [item]);
-  res.redirect("/");
-  } catch (err) {
-    console.log(err);
-  }
+app.post('/submit', (req, res) => {
+  // Process the submitted answers here
+  console.log(req.body);
+  res.send('Answers submitted');
 });
 
-app.post("/edit", async(req, res) => {
-  const newItem =req.body.updatedItemTitle;
-  const newId =req.body.updatedItemId;
-  try{
- await db.query("UPDATE items SET title=($1) WHERE id =($2)",[newItem,newId]);
- res.redirect("/");
-  }
-  catch (err) {
-    console.log(err);
-  }
-});
-
-app.post("/delete", async(req, res) => {
-  const finised=req.body.deleteItemId;
-  try {
-    await db.query("DELETE FROM items WHERE id = $1", [finised]);
-    res.redirect("/");
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
