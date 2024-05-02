@@ -108,5 +108,18 @@
       { "index": 3, "text": "mysql (MySQL)" }
     ],
     "answer": 0
-  }
+  },
+
+  {
+    "id": 11,
+    "text": "Which of the following is a templating engine commonly used with Node.js?",
+    "options": [
+        { "index": 0, "text": "EJS" },
+        { "index": 1, "text": "React" },
+        { "index": 2, "text": "Angular" },
+        { "index": 3, "text": "Vue.js" }
+    ]
+    "answer": 0
+}
+
 ]
